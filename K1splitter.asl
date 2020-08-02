@@ -1,8 +1,3 @@
-//SW: KotOR Autosplitter - Release v1.0.0 (August 2nd 2020)
-//Full Configuration
-
-//by XerO w/ assistance from Burnt
-
 //TODO: Get Ending event & implement
 
 state("swkotor") 
