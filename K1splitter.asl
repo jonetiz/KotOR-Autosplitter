@@ -1,11 +1,10 @@
-//TODO: Get Ending event & implement
-
 state("swkotor") 
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
 	byte loadingState: 0x003A39FC, 0x4, 0x4, 0x278, 0x5C, 0x60;
 	byte altf4State: "swkotor.exe", 0x3B98EA;
+	uint endState:  0x3BB4E4;
 }
 init
 {
@@ -1887,7 +1886,7 @@ split
 			
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
-			case "sfg_m40aa":
+			case "sta_m45aa":
 			if (settings["sfg_1"] == true)
 			{
 				if (settings["sfg_1_1"] == true)
@@ -1902,7 +1901,7 @@ split
 			}
 			break;
 			
-			case "sfg_m40ab":
+			case "sta_m45ab":
 			if (settings["sfg_2"] == true)
 			{
 				if (settings["sfg_2_1"] == true)
@@ -1917,7 +1916,7 @@ split
 			}
 			break;
 			
-			case "sfg_m40ad":
+			case "sta_m45ac":
 			if (settings["sfg_3"] == true)
 			{
 				if (settings["sfg_3_1"] == true)
@@ -1932,7 +1931,7 @@ split
 			}
 			break;
 			
-			case "sfg_m40ac":
+			case "sta_m45ad":
 			if (settings["sfg_4"] == true)
 			{
 				if (settings["sfg_4_1"] == true)
@@ -2147,6 +2146,10 @@ split
 			default:
 			break;
 		}
+	}
+	if (current.area == "sta_m45ad" && current.endState == 1132924759)
+	{
+		return true;
 	}
 }
 
