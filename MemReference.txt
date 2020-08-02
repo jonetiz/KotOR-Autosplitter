@@ -1,0 +1,27 @@
+current.area = current module (found in swkotor/modules)
+old.area = old module (found in swkotor/modules)
+
+current.tickcount = tickcount started as soon as module is loaded
+old.tickcount = previous tick
+
+loadingState = whether or not the game is loading; 97 = true
+altf4State = whether or not the player is in a menu (only currently used during loading check for AMGs, 128 when true, 0 when false)
+
+Additional Pointers for endingState
+
+0x3BB4E4 on end = 1132924759 <- CURRENT
+
+0x3BB4F8 on end = 3211817048
+0x3BB4FC on end = 3198986015
+0x3BB500 on end = 1032071536
+0x427F80 on end = 1058587147
+0x427F84 on end = 1057960668
+0x427F88 on end = 3200874585
+0x427F8C on end = 3201756000
+0x427F90 on end = 1128798948
+0x427F94 on end = 1131651025
+0x427F98 on end = 1066688994
+0x431F10 on end = 1065318248
+0x433924 on end = 3266576368
+0x433928 on end = 1128872718
+0x43392C on end = 1131715081
