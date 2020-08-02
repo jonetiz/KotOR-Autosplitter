@@ -1,3 +1,8 @@
+//SW: KotOR Autosplitter - Alpha Release 2 (August 2nd 2020)
+//Full Configuration
+
+//by XerO w/ assistance from Burnt
+
 state("swkotor") 
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
@@ -2155,7 +2160,12 @@ split
 
 isLoading
 {
-	return(current.loadingState == 97 && current.altf4State != 128);
+	if (current.area == "END_M01AA" && current.tickcount < 60)
+	{
+		return(current.loadingState == 97);
+	} else {
+		return(current.loadingState == 97 && current.altf4State != 128);
+	}
 }
 
 reset
