@@ -7,7 +7,7 @@ This is a [LiveSplit](https://livesplit.org/) autosplitter made for *Star Wars: 
 3. **Basic Configuration -** Customization is limited to one split per in-game planet.
     1. **This is recommended for anyone who doesn't wish to use subsplits or the unlimited splitting feature(s).**
 
-**All** versions have an implemented load remover, and will start at the proper time (ending is not yet implemented).
+**All** versions have an implemented load remover, and *should* start at the proper time.
 
 This autosplitter has not been tested with the old load remover, and as such is not recommended to be used in conjunction.
 
@@ -29,5 +29,3 @@ This autosplitter has not been tested with the old load remover, and as such is 
     1. You must create the proper number of splits.
 8. Once configured to you liking, close the Layout Settings and Layout Editor windows.
 9. Right click on LiveSplit and set the "Compare Against" to "Game Time".
-
-As stated above, the autosplitter does not currently have a trigger for the ending, and as such, this must be done manually by the user until such a feature is implemented.
