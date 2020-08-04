@@ -5,7 +5,7 @@ current.tickcount = tickcount started as soon as module is loaded
 old.tickcount = previous tick
 
 loadingState = whether or not the game is loading; 97 = true
-altf4State = whether or not the player is in a menu (only currently used during loading check for AMGs, 128 when true, 0 when false)
+altf4State = whether or not the player is in a menu (only currently used during loading check for AMGs, 128 when true, 0 when false) <- Should find better pointer
 
 Additional Pointers for endingState
 
