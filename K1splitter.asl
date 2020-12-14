@@ -7,7 +7,7 @@ state("swkotor")
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	byte loadingState: 0x003A39FC, 0x4, 0x4, 0x278, 0x5C, 0x60;
+	byte loadingState: 0x003A39F4, 0xC8, 0x10, 0x4, 0x54, 0x0, 0x3CC;
 	byte altf4State: "swkotor.exe", 0x3B98EA;
 	uint endState:  0x3BB4E4;
 }
@@ -2061,5 +2061,5 @@ split
 
 isLoading
 {
-	return  (current.loadingState == 97 && ((current.area == "END_M01AA" && current.tickcount < 60) || (current.altf4State != 128)));
+	return  (current.loadingState == 108 && ((current.area == "END_M01AA" && current.tickcount < 60) || (current.altf4State != 128)));
 }
