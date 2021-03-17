@@ -9,8 +9,6 @@ This is a [LiveSplit](https://livesplit.org/) autosplitter made for *Star Wars: 
 
 **All** versions have an implemented load remover, and *should* start at the proper time.
 
-This autosplitter has not been tested with the old load remover, and as such is not recommended to be used in conjunction.
-
 ## Installation & Usage
 *Autosplitters often use a good deal processing power, which may result in a decline of game and/or overall system performance. Use at your own risk.*
 
