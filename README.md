@@ -7,10 +7,10 @@ This is a [LiveSplit](https://livesplit.org/) autosplitter made for *Star Wars: 
 3. **Basic Configuration -** Customization is limited to one split per in-game planet.
     1. **This is recommended for anyone who doesn't wish to use subsplits or the unlimited splitting feature(s).**
 
-**All** versions have an implemented load remover, and *should* start at the proper time.
+**All** versions have an implemented load remover, that is consistent with the currently accepted one, and start approximately 0.75 seconds after the official start (750 ms are automatically added to correct this).
 
 ## Installation & Usage
-*Autosplitters often use a good deal processing power, which may result in a decline of game and/or overall system performance. Use at your own risk.*
+*Autosplitters can use a good deal processing power, which may result in a decline of game and/or overall system performance. Use at your own risk.*
 
 ### Prerequisites
 - [LiveSplit](https://livesplit.org/)
