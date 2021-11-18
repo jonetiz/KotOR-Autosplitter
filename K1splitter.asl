@@ -1,4 +1,4 @@
-//SW: KotOR Autosplitter - Beta Release 1 (February 5th 2021)
+//SW: KotOR Autosplitter - Release 3 (November 18th 2021)
 //Full Configuration
 
 //by XerO w/ assistance from Burnt
@@ -503,8 +503,6 @@ startup
 	vars.startedMisc12 = false;
 	vars.startedMisc13 = false;
 	
-	vars.reinit = false;
-	
 	if (Environment.OSVersion.Version.Major == 6 &&
         Environment.OSVersion.Version.Minor >  1 &&
         Environment.OSVersion.Version.Build > 1800)
@@ -593,7 +591,120 @@ update
 
 start
 {
-	vars.reinit = false;
+	vars.startedEnd1 = false;
+	vars.startedEnd2 = false;
+	
+	vars.startedTar1 = false;
+	vars.startedTar2 = false;
+	vars.startedTar3 = false;
+	vars.startedTar4 = false;
+	vars.startedTar5 = false;
+	vars.startedTar6 = false;
+	vars.startedTar7 = false;
+	vars.startedTar8 = false;
+	vars.startedTar9 = false;
+	vars.startedTar10 = false;
+	vars.startedTar11 = false;
+	vars.startedTar12 = false;
+	vars.startedTar13 = false;
+	vars.startedTar14 = false;
+	vars.startedTar15 = false;
+	vars.startedTar16 = false;
+	vars.startedTar17 = false;
+	vars.startedTar18 = false;
+	vars.startedTar19 = false;
+	vars.startedTar20 = false;
+	vars.startedTar21 = false;
+	vars.startedTar22 = false;
+	
+	vars.startedDan1 = false;
+	vars.startedDan2 = false;
+	vars.startedDan3 = false;
+	vars.startedDan4 = false;
+	vars.startedDan5 = false;
+	vars.startedDan6 = false;
+	vars.startedDan7 = false;
+	vars.startedDan8 = false;
+	
+	vars.startedMan1 = false;
+	vars.startedMan2 = false;
+	vars.startedMan3 = false;
+	vars.startedMan4 = false;
+	vars.startedMan5 = false;
+	vars.startedMan6 = false;
+	vars.startedMan7 = false;
+	vars.startedMan8 = false;
+	vars.startedMan9 = false;
+	vars.startedMan10 = false;
+	vars.startedMan11 = false;
+	
+	vars.startedKor1 = false;
+	vars.startedKor2 = false;
+	vars.startedKor3 = false;
+	vars.startedKor4 = false;
+	vars.startedKor5 = false;
+	vars.startedKor6 = false;
+	vars.startedKor7 = false;
+	vars.startedKor8 = false;
+	vars.startedKor9 = false;
+	vars.startedKor10 = false;
+	
+	vars.startedKas1 = false;
+	vars.startedKas2 = false;
+	vars.startedKas3 = false;
+	vars.startedKas4 = false;
+	vars.startedKas5 = false;
+	vars.startedKas6 = false;
+	vars.startedKas7 = false;
+	vars.startedKas8 = false;
+	
+	vars.startedTat1 = false;
+	vars.startedTat2 = false;
+	vars.startedTat3 = false;
+	vars.startedTat4 = false;
+	vars.startedTat5 = false;
+	vars.startedTat6 = false;
+	vars.startedTat7 = false;
+	vars.startedTat8 = false;
+	vars.startedTat9 = false;
+	vars.startedTat10 = false;
+	vars.startedTat11 = false;
+	vars.startedTat12 = false;
+	
+	vars.startedLev1 = false;
+	vars.startedLev2 = false;
+	vars.startedLev3 = false;
+	vars.startedLev4 = false;
+	
+	vars.startedUnk1 = false;
+	vars.startedUnk2 = false;
+	vars.startedUnk3 = false;
+	vars.startedUnk4 = false;
+	vars.startedUnk5 = false;
+	vars.startedUnk6 = false;
+	vars.startedUnk7 = false;
+	vars.startedUnk8 = false;
+	vars.startedUnk9 = false;
+	
+	vars.startedSfg1 = false;
+	vars.startedSfg2 = false;
+	vars.startedSfg3 = false;
+	vars.startedSfg4 = false;
+	
+	vars.startedMisc1 = false;
+	vars.startedMisc2 = false;
+	vars.startedMisc3 = false;
+	vars.startedMisc4 = false;
+	vars.startedMisc5 = false;
+	vars.startedMisc6 = false;
+	vars.startedMisc7 = false;
+	vars.startedMisc8 = false;
+	vars.startedMisc9 = false;
+	vars.startedMisc10 = false;
+	vars.startedMisc11 = false;
+	vars.startedMisc12 = false;
+	vars.startedMisc13 = false;
+	
 	if (current.area == "END_M01AA"  && current.tickcount > 0 && current.tickcount < 30) {
         timer.Run.Offset = TimeSpan.FromSeconds(0.75);
         return true;
@@ -602,124 +713,6 @@ start
 
 split
 {
-	if (vars.reinit == false)
-	{
-		vars.startedEnd1 = false;
-		vars.startedEnd2 = false;
-		
-		vars.startedTar1 = false;
-		vars.startedTar2 = false;
-		vars.startedTar3 = false;
-		vars.startedTar4 = false;
-		vars.startedTar5 = false;
-		vars.startedTar6 = false;
-		vars.startedTar7 = false;
-		vars.startedTar8 = false;
-		vars.startedTar9 = false;
-		vars.startedTar10 = false;
-		vars.startedTar11 = false;
-		vars.startedTar12 = false;
-		vars.startedTar13 = false;
-		vars.startedTar14 = false;
-		vars.startedTar15 = false;
-		vars.startedTar16 = false;
-		vars.startedTar17 = false;
-		vars.startedTar18 = false;
-		vars.startedTar19 = false;
-		vars.startedTar20 = false;
-		vars.startedTar21 = false;
-		vars.startedTar22 = false;
-		
-		vars.startedDan1 = false;
-		vars.startedDan2 = false;
-		vars.startedDan3 = false;
-		vars.startedDan4 = false;
-		vars.startedDan5 = false;
-		vars.startedDan6 = false;
-		vars.startedDan7 = false;
-		vars.startedDan8 = false;
-		
-		vars.startedMan1 = false;
-		vars.startedMan2 = false;
-		vars.startedMan3 = false;
-		vars.startedMan4 = false;
-		vars.startedMan5 = false;
-		vars.startedMan6 = false;
-		vars.startedMan7 = false;
-		vars.startedMan8 = false;
-		vars.startedMan9 = false;
-		vars.startedMan10 = false;
-		vars.startedMan11 = false;
-		
-		vars.startedKor1 = false;
-		vars.startedKor2 = false;
-		vars.startedKor3 = false;
-		vars.startedKor4 = false;
-		vars.startedKor5 = false;
-		vars.startedKor6 = false;
-		vars.startedKor7 = false;
-		vars.startedKor8 = false;
-		vars.startedKor9 = false;
-		vars.startedKor10 = false;
-		
-		vars.startedKas1 = false;
-		vars.startedKas2 = false;
-		vars.startedKas3 = false;
-		vars.startedKas4 = false;
-		vars.startedKas5 = false;
-		vars.startedKas6 = false;
-		vars.startedKas7 = false;
-		vars.startedKas8 = false;
-		
-		vars.startedTat1 = false;
-		vars.startedTat2 = false;
-		vars.startedTat3 = false;
-		vars.startedTat4 = false;
-		vars.startedTat5 = false;
-		vars.startedTat6 = false;
-		vars.startedTat7 = false;
-		vars.startedTat8 = false;
-		vars.startedTat9 = false;
-		vars.startedTat10 = false;
-		vars.startedTat11 = false;
-		vars.startedTat12 = false;
-		
-		vars.startedLev1 = false;
-		vars.startedLev2 = false;
-		vars.startedLev3 = false;
-		vars.startedLev4 = false;
-		
-		vars.startedUnk1 = false;
-		vars.startedUnk2 = false;
-		vars.startedUnk3 = false;
-		vars.startedUnk4 = false;
-		vars.startedUnk5 = false;
-		vars.startedUnk6 = false;
-		vars.startedUnk7 = false;
-		vars.startedUnk8 = false;
-		vars.startedUnk9 = false;
-		
-		vars.startedSfg1 = false;
-		vars.startedSfg2 = false;
-		vars.startedSfg3 = false;
-		vars.startedSfg4 = false;
-		
-		vars.startedMisc1 = false;
-		vars.startedMisc2 = false;
-		vars.startedMisc3 = false;
-		vars.startedMisc4 = false;
-		vars.startedMisc5 = false;
-		vars.startedMisc6 = false;
-		vars.startedMisc7 = false;
-		vars.startedMisc8 = false;
-		vars.startedMisc9 = false;
-		vars.startedMisc10 = false;
-		vars.startedMisc11 = false;
-		vars.startedMisc12 = false;
-		vars.startedMisc13 = false;
-		
-		vars.reinit = false;
-	}
 	if (current.area != old.area)
 	{
 		string checkarea = current.area;
