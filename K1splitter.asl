@@ -1,4 +1,4 @@
-//SW: KotOR Autosplitter - Release 3 (November 18th 2021)
+//SW: KotOR Autosplitter - Release 4 (15 January 2022)
 //Full Configuration
 
 //by XerO w/ assistance from Burnt
@@ -7,8 +7,6 @@ state("swkotor")
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	byte loadingState: 0x003A39F4, 0xC8, 0x10, 0x4, 0x54, 0x0, 0x3CC;
-	byte altf4State: "swkotor.exe", 0x3B98EA;
 	uint endState:  0x3BB4E4;
 	int isNotLoading   : "dinput8.dll", 0x02C1D4;
     int isNotLoading1803:"dinput8.dll", 0x02C1D4;
@@ -21,8 +19,6 @@ state("swkotor", "win10-18xx")
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	byte loadingState: 0x003A39F4, 0xC8, 0x10, 0x4, 0x54, 0x0, 0x3CC;
-	byte altf4State: "swkotor.exe", 0x3B98EA;
 	uint endState:  0x3BB4E4;
     int isNotLoading   : "dinput8.dll", 0x030218;
     int isNotLoading1803:"dinput8.dll", 0x032238;
@@ -35,8 +31,6 @@ state("swkotor", "win10-10-17")
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	byte loadingState: 0x003A39F4, 0xC8, 0x10, 0x4, 0x54, 0x0, 0x3CC;
-	byte altf4State: "swkotor.exe", 0x3B98EA;
 	uint endState:  0x3BB4E4;
     int isNotLoading   : "dinput8.dll", 0x0311D8;
     int isNotLoading1803:"dinput8.dll", 0x0311D8;
@@ -49,8 +43,6 @@ state("swkotor", "win10-old")
 {
 	string10 area: 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	byte loadingState: 0x003A39F4, 0xC8, 0x10, 0x4, 0x54, 0x0, 0x3CC;
-	byte altf4State: "swkotor.exe", 0x3B98EA;
 	uint endState:  0x3BB4E4;
     int isNotLoading   : "dinput8.dll", 0x02FEB8;
     int isNotLoading1803:"dinput8.dll", 0x02FEB8;
