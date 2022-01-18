@@ -14,9 +14,17 @@ This is a [LiveSplit](https://livesplit.org/) autosplitter made for *Star Wars: 
 
 ### Prerequisites
 - [LiveSplit](https://livesplit.org/)
-- Latest version of  *Star Wars: Knight of the Old Republic* from Steam (other versions must be requested)
+- Latest version of  *Star Wars: Knight of the Old Republic* or *Star Wars: Knights of the Old Republic II: The Sith Lords* from Steam (other versions must be requested)
 
-### Installation
+### "Automatic" Installation
+1. Right click Livesplit > Edit Splits
+2. Type "Star Wars: Knights of the Old Republic" or "Star Wars: Knights of the Old Republic II" into the game name (depending on which game). The window should update to say "Auto Splitter is available by Xero. Load Removal by glasnonck.".
+3. Click the Activate button if it is not already activated. 
+4. Click the Settings button to open the autosplitter settings. Tick the checkbox of any settings that you want to use. Hit OK to save.
+6. In the Splits Editor, add as many segments as you need. The number of segments should match the number of splits you have selected in settings, and/or every module you enter if Unlimited Splits is selected. (Individual module splits will be added at a later date for KotOR II)
+7. Hit OK to save settings.
+
+### Manual Installation
 1. Download whichever configuration you wish to use from the [Releases](https://github.com/x-e-r-o/KotOR-Autosplitter/releases) page.
 2. Open LiveSplit
 3. Right click anywhere in the LiveSplit window and go to "Edit Layout...".
