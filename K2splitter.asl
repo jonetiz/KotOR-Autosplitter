@@ -67,7 +67,7 @@ startup
 			settings.Add("003EBO_unlim", false, "Unlimited Splits", "003EBO");
 		settings.Add("004EBO", false, "004EBO - Interior (Red Eclipse Ambush)", "ebo_main");
 			settings.Add("004EBO_unlim", false, "Unlimited Splits", "004EBO");
-		settings.Add("005EBO", false, "005EBO - Interior (Peragus Escape)", "ebo_main");
+		settings.Add("005EBO", false, "005EBO - Interior (Peragus Escape after Turret Minigame)", "ebo_main");
 			settings.Add("005EBO_unlim", false, "Unlimited Splits", "005EBO");
 		settings.Add("006EBO", false, "006EBO - Interior (Before Battle of Telos?)", "ebo_main");
 			settings.Add("006EBO_unlim", false, "Unlimited Splits", "006EBO");
@@ -88,7 +88,7 @@ startup
 			settings.Add("105PER_unlim", false, "Unlimited Splits", "105PER");
 		settings.Add("106PER", false, "106PER - Hangar Bay", "per_main");
 			settings.Add("106PER_unlim", false, "Unlimited Splits", "106PER");
-		settings.Add("107PER", false, "107PER - Escape Cutscene (same as 005EBO?)", "per_main");
+		settings.Add("107PER", false, "107PER - Turret Minigame/Escape Sequence", "per_main");
 			settings.Add("107PER_unlim", false, "Unlimited Splits", "107PER");
 
 	// HARBINGER
