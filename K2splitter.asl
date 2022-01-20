@@ -1,4 +1,4 @@
-//SW: KotOR II Autosplitter - Release 2 (18 January 2022)
+//SW: KotOR II Autosplitter - Release 2 (20 January 2022)
 //Full Configuration
 
 //by XerO
@@ -296,22 +296,6 @@ init
     game.Exited += (s, e) => timer.IsGameTimePaused = false;
 }
 
-// Need this for two things
-update { 
-	if (settings["use1803Addr"])
-    {
-      vars.loading = current.isNotLoading1803 == 0
-          && current.isActiveWindow == 1
-          && current.isMoviePlaying1803 == 0;
-    }
-    else
-    {
-      vars.loading = current.isNotLoading == 0
-          && current.isActiveWindow == 1
-          && current.isMoviePlaying == 0;
-    }
-}
-
 start
 {	
 	vars.enteredAreas = new List<string>() { "001EBO" };
@@ -336,8 +320,24 @@ split
 		}
 	}
 	
-	if (current.area == "904MAL" && current.endState == 1685976) {
+	if (current.area == "904MAL" && (current.endState == 1686976 || current.endState == 1686408)) {
 		return true;
+	}
+}
+
+update
+{
+    if (settings["use1803Addr"])
+	{
+		vars.loading = current.isNotLoading1803 == 0
+		&& current.isActiveWindow == 1
+		&& current.isMoviePlaying1803 == 0;
+	}
+	else
+	{
+		vars.loading = current.isNotLoading == 0
+		&& current.isActiveWindow == 1
+		&& current.isMoviePlaying == 0;
 	}
 }
 
@@ -345,7 +345,7 @@ isLoading
 {
     return vars.loading;
 }
-
-shutdown {
+shutdown
+{
     timer.OnStart -= vars.timerStart;
 }
