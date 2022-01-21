@@ -11,6 +11,7 @@ state("swkotor2")
     int isNotLoading   	: "dinput8.dll",  0x02C1D4;
     int isActiveWindow 	: "swkotor2.exe", 0x61B4E0;
     int isMoviePlaying 	: "ddraw.dll",    0x07A00C;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
     
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
@@ -24,6 +25,7 @@ state("swkotor2", "win10_1703")
     int isNotLoading   : "dinput8.dll",  0x0311D8;
     int isActiveWindow : "swkotor2.exe", 0x61B4E0;
     int isMoviePlaying : "ddraw.dll",    0x080C04;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
     
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
@@ -37,6 +39,7 @@ state("swkotor2", "win10_1803")
     int isNotLoading   : "dinput8.dll",  0x032238;
     int isActiveWindow : "swkotor2.exe", 0x61B4E0;
     int isMoviePlaying : "ddraw.dll",    0x07DC1C;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
 
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
@@ -50,6 +53,7 @@ state("swkotor2", "win10_1809")
     int isNotLoading   : "dinput8.dll",  0x030218;
     int isActiveWindow : "swkotor2.exe", 0x61B4E0;
     int isMoviePlaying : "ddraw.dll",    0x07CACC;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
 
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
@@ -292,6 +296,10 @@ init
         }
     }
 
+    // Variable used to determine trust of isNotLoading.
+    vars.trust = 0;
+
+    // Game is not paused at start, and keep timer running if game exits.
     timer.IsGameTimePaused = false;
     game.Exited += (s, e) => timer.IsGameTimePaused = false;
 }
@@ -327,18 +335,44 @@ split
 
 update
 {
-    if (settings["use1803Addr"])
-	{
-		vars.loading = current.isNotLoading1803 == 0
-		&& current.isActiveWindow == 1
-		&& current.isMoviePlaying1803 == 0;
-	}
-	else
-	{
-		vars.loading = current.isNotLoading == 0
-		&& current.isActiveWindow == 1
-		&& current.isMoviePlaying == 0;
-	}
+    // Begin trusting when no modifier keys are pressed.
+    if (current.modifierKeys == 0)
+    {
+        vars.trust = 1;
+    }
+    
+    // Stop trusting when any combination of ALT and SHIFT are pressed,
+    // or if the WIN key is pressed.
+    if (current.modifierKeys == 9   ||  // r ALT
+        current.modifierKeys == 45  ||  // r  SHIFT, r ALT
+        current.modifierKeys == 269 ||  // l  SHIFT, r ALT
+        current.modifierKeys == 301 ||  // lr SHIFT, r ALT
+        current.modifierKeys == 65  ||  // l ALT
+        current.modifierKeys == 101 ||  // r  SHIFT, l ALT
+        current.modifierKeys == 325 ||  // l  SHIFT, l ALT
+        current.modifierKeys == 357 ||  // lr SHIFT, l ALT
+        current.modifierKeys > 16000)   // WIN key pressed, too many combinations
+    {
+        vars.trust = 0;
+    }
+    
+    // Do not pause timer if addresses are not trusted.
+    if (vars.trust == 0)
+    {
+        vars.loading = false;
+    }
+    else if (settings["use1803Addr"])
+    {
+        vars.loading = current.isNotLoading1803 == 0
+            && current.isActiveWindow == 1
+            && current.isMoviePlaying1803 == 0;
+    }
+    else
+    {
+        vars.loading = current.isNotLoading == 0
+            && current.isActiveWindow == 1
+            && current.isMoviePlaying == 0;
+    }
 }
 
 isLoading
