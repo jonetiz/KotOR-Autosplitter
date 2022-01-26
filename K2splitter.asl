@@ -16,7 +16,6 @@ state("swkotor2")
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
 }
-
 state("swkotor2", "win10_1703")
 {
 	string6 area : "swkotor2.exe", 0x0061B4A4, 0x4, 0x4, 0x2FC, 0x5;
@@ -30,7 +29,6 @@ state("swkotor2", "win10_1703")
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
 }
-
 state("swkotor2", "win10_1803")
 {
 	string6 area : "swkotor2.exe", 0x0061B4A4, 0x4, 0x4, 0x2FC, 0x5;
@@ -44,7 +42,6 @@ state("swkotor2", "win10_1803")
     int isNotLoading1803:"dinput8.dll",  0x032238;
     int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
 }
-
 state("swkotor2", "win10_1809")
 {
 	string6 area : "swkotor2.exe", 0x0061B4A4, 0x4, 0x4, 0x2FC, 0x5;
