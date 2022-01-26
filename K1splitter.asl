@@ -14,7 +14,6 @@ state("swkotor")
     int inGamePause    : "swkotor.exe", 0x432890;
     int runningTimer   : "swkotor.exe", 0x3B9288;
 }
-
 state("swkotor", "win10-18xx")
 {
 	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
@@ -26,7 +25,6 @@ state("swkotor", "win10-18xx")
     int inGamePause    : "swkotor.exe", 0x432890;
     int runningTimer   : "swkotor.exe", 0x3B9288;
 }
-
 state("swkotor", "win10-10-17")
 {
 	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
@@ -38,7 +36,6 @@ state("swkotor", "win10-10-17")
     int inGamePause    : "swkotor.exe", 0x432890;
     int runningTimer   : "swkotor.exe", 0x3B9288;
 }
-
 state("swkotor", "win10-old")
 {
 	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
@@ -381,6 +378,7 @@ update
 start
 {
 	vars.enteredAreas = new List<string>() { "END_M01AA" };
+	
 	if (current.area == "END_M01AA" && current.tickcount > 0 && current.tickcount < 30) {
         timer.Run.Offset = TimeSpan.FromSeconds(0.75);
         return true;
@@ -391,16 +389,16 @@ split
 {
 	if (current.area != old.area) // enters a different module
 	{
-		if (settings[current.area]) { // check if we're supposed to split on the new area
-			if (settings[current.area + "_unlim"]) { // check if we want to unlimited split
+		if (settings[current.area.ToUpper()]) { // check if we're supposed to split on the new area
+			if (settings[current.area.ToUpper() + "_unlim"]) { // check if we want to unlimited split
 				return true;
-			} else if (vars.enteredAreas.Contains(current.area) != true) {
-				vars.enteredAreas.Add(current.area);
+			} else if (vars.enteredAreas.Contains(current.area.ToUpper()) != true) {
+				vars.enteredAreas.Add(current.area.ToUpper());
 				return true;
 			}
 		}
 	}
-	if (current.area == "sta_m45ad" && current.endState == 1132924759)
+	if (current.area.ToUpper() == "STA_M45AD" && current.endState == 1132924759)
 	{
 		return true;
 	}
