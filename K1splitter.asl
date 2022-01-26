@@ -5,9 +5,9 @@
 
 state("swkotor") 
 {
-	string10 area: 0x003A39E8, 0x4C;
-	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState:  0x3BB4E4;
+	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
+	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
+	uint endState: "swkotor.exe",  0x3BB4E4;
 	int isNotLoading   : "dinput8.dll", 0x02C1D4;
     int isNotLoading1803:"dinput8.dll", 0x02C1D4;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
@@ -17,9 +17,9 @@ state("swkotor")
 
 state("swkotor", "win10-18xx")
 {
-	string10 area: 0x003A39E8, 0x4C;
-	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState:  0x3BB4E4;
+	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
+	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
+	uint endState: "swkotor.exe",  0x3BB4E4;
     int isNotLoading   : "dinput8.dll", 0x030218;
     int isNotLoading1803:"dinput8.dll", 0x032238;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
@@ -29,9 +29,9 @@ state("swkotor", "win10-18xx")
 
 state("swkotor", "win10-10-17")
 {
-	string10 area: 0x003A39E8, 0x4C;
-	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState:  0x3BB4E4;
+	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
+	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
+	uint endState: "swkotor.exe",  0x3BB4E4;
     int isNotLoading   : "dinput8.dll", 0x0311D8;
     int isNotLoading1803:"dinput8.dll", 0x0311D8;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
@@ -41,9 +41,9 @@ state("swkotor", "win10-10-17")
 
 state("swkotor", "win10-old")
 {
-	string10 area: 0x003A39E8, 0x4C;
-	uint tickcount: 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState:  0x3BB4E4;
+	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
+	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
+	uint endState: "swkotor.exe",  0x3BB4E4;
     int isNotLoading   : "dinput8.dll", 0x02FEB8;
     int isNotLoading1803:"dinput8.dll", 0x02FEB8;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
@@ -381,7 +381,7 @@ update
 start
 {
 	vars.enteredAreas = new List<string>() { "END_M01AA" };
-	
+	print(current.area);
 	if (current.area == "END_M01AA" && current.tickcount > 0 && current.tickcount < 30) {
         timer.Run.Offset = TimeSpan.FromSeconds(0.75);
         return true;
