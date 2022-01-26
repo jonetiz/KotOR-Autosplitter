@@ -381,7 +381,6 @@ update
 start
 {
 	vars.enteredAreas = new List<string>() { "END_M01AA" };
-	print(current.area);
 	if (current.area == "END_M01AA" && current.tickcount > 0 && current.tickcount < 30) {
         timer.Run.Offset = TimeSpan.FromSeconds(0.75);
         return true;
