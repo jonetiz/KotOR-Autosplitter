@@ -91,6 +91,8 @@ startup
 			settings.Add("TAR_M05AB_unlim", false, "Unlimited Splits", "TAR_M05AB");
 		settings.Add("TAR_M10AA", false, "TAR_M10AA - Vulkar Base", "tar_main");
 			settings.Add("TAR_M10AA_unlim", false, "Unlimited Splits", "TAR_M10AA");
+		settings.Add("TAR_M10AB", false, "TAR_M10AB - Vulkar Spice Lab", "tar_main");
+			settings.Add("TAR_M10AB_unlim", false, "Unlimited Splits", "TAR_M10AB");
 		settings.Add("TAR_M10AC", false, "TAR_M10AC - Vulkar Garage", "tar_main");
 			settings.Add("TAR_M10AC_unlim", false, "Unlimited Splits", "TAR_M10AC");
 		settings.Add("TAR_M03AF", false, "TAR_M03AF - Swoop Platform", "tar_main");
@@ -152,8 +154,6 @@ startup
 	settings.Add("kor_main", true, "Korriban Splits");
 		settings.Add("KORR_M33AA", true, "KORR_M33AA - Dreshdae", "kor_main");
 			settings.Add("KORR_M33AA_unlim", false, "Unlimited Splits", "KORR_M33AA");
-		settings.Add("EBO_M46AB", false, "EBO_M46AB  - Unfinished Business (Prison)", "kor_main");
-			settings.Add("EBO_M46AB_unlim", false, "Unlimited Splits", "EBO_M46AB");
 		settings.Add("KORR_M33AB", false, "KORR_M33AB - Sith Academy Entrance", "kor_main");
 			settings.Add("KORR_M33AB_unlim", false, "Unlimited Splits", "KORR_M33AB");
 		settings.Add("KORR_M35AA", false, "KORR_M35AA - Sith Academy", "kor_main");
@@ -260,11 +260,20 @@ startup
 		settings.Add("STA_M45AD", false, "STA_M45AD - Viewing Platform", "sfg_main");
 			settings.Add("STA_M45AD_unlim", false, "Unlimited Splits", "STA_M45AD");
 	
+	// EBON HAWK
+	settings.Add("ebo_main", false", "Ebon Hawk Splits");
+		settings.Add("EBO_M12AA", false, "EBO_M12AA - Ebon Hawk", "ebo_main");
+			settings.Add("EBO_M12AA_unlim", false, "Unlimited Splits", "EBO_M12AA");
+		settings.Add("EBO_M41AA", false, "EBO_M41AA - Ebon Hawk on Lehon", "ebo_main");
+			settings.Add("EBO_M41AA_unlim", false, "Unlimited Splits", "EBO_M41AA");
+		settings.Add("EBO_M46AB", false, "EBO_M46AB  - Mind Prison", "ebo_main");
+			settings.Add("EBO_M46AB_unlim", false, "Unlimited Splits", "EBO_M46AB");
+		
 	// MISCELLANEOUS
 	settings.Add("misc_main", false, "Miscellaneous Splits");
-		settings.Add("EBO_M12AA", false, "EBO_M12AA - Ebon Hawk", "misc_main");
-			settings.Add("EBO_M12AA_unlim", false, "Unlimited Splits", "EBO_M12AA");
-		settings.Add("STUNT_00", false, "STUNT_00 - Dream Sequences", "misc_main");
+		settings.Add("LIV_M99AA", false, "LIV_M99AA - Yavin Station", "misc_main");
+			settings.Add("LIV_M99AA_unlim", false, "Unlimited Splits", "LIV_M99AA");
+		settings.Add("STUNT_00", false, "STUNT_00 - Dream Sequence", "misc_main");
 			settings.Add("STUNT_00_unlim", false, "Unlimited Splits", "STUNT_00");
 		settings.Add("STUNT_03A", false, "STUNT_03A - Taris Leviathan Bridge Cutscene", "misc_main");
 			settings.Add("STUNT_03A_unlim", false, "Unlimited Splits", "STUNT_03A");
@@ -278,16 +287,34 @@ startup
 			settings.Add("STUNT_12_unlim", false, "Unlimited Splits", "STUNT_12");
 		settings.Add("STUNT_14", false, "STUNT_14 - Darth Bandon Leviathan Cutscene", "misc_main");
 			settings.Add("STUNT_14_unlim", false, "Unlimited Splits", "STUNT_14");
-		settings.Add("LIV_M99AA", false, "LIV_M99AA - Yavin Station", "misc_main");
-			settings.Add("LIV_M99AA_unlim", false, "Unlimited Splits", "LIV_M99AA");
 		settings.Add("STUNT_16", false, "STUNT_16 - Leviathan Capture Cutscene", "misc_main");
 			settings.Add("STUNT_16_unlim", false, "Unlimited Splits", "STUNT_16");
+		settings.Add("EBO_M40AA", false, "EBO_M40AA - Leviathan Game Plan Cutscene", "misc_main");
+			settings.Add("EBO_M40AA_unlim", false, "Unlimited Splits", "EBO_M40AA");
 		settings.Add("STUNT_31B", false, "STUNT_31B - Revan Reveal Cutscene", "misc_main");
 			settings.Add("STUNT_31B_unlim", false, "Unlimited Splits", "STUNT_31B");
+		settings.Add("EBO_M40AD", false, "EBO_M40AD - Leviathan Escape Cutscene", "misc_main");
+			settings.Add("EBO_M40AD_unlim", false, "Unlimited Splits", "EBO_M40AD");
+		settings.Add("STUNT_18", false, "STUNT_18 - Bastilla Torture Cutscene", "misc_main");
+			settings.Add("STUNT_18_unlim", false, "Unlimited Splits", "STUNT_18");
 		settings.Add("STUNT_35", false, "STUNT_35 - Lehon Arrival Cutscene", "misc_main");
 			settings.Add("STUNT_35_unlim", false, "Unlimited Splits", "STUNT_35");
-		settings.Add("STUNT_42", false, "STUNT_42 - Lehon Departure Cutscene", "misc_main");
+		settings.Add("STUNT_42", false, "STUNT_42 - Lehon Departure Cutscene (LS)", "misc_main");
 			settings.Add("STUNT_42_unlim", false, "Unlimited Splits", "STUNT_42");
+		settings.Add("STUNT_44", false, "STUNT_44 - Lehon Departure Cutscene (DS)", "misc_main");
+			settings.Add("STUNT_44_unlim", false, "Unlimited Splits", "STUNT_44");
+		settings.Add("STUNT_34", false, "STUNT_34 - Star Forge Arrival Cutscene", "misc_main");
+			settings.Add("STUNT_34_unlim", false, "Unlimited Splits", "STUNT_34");
+		settings.Add("STUNT_50A", false, "STUNT_50A - Green Squadron Cutscene", "misc_main");
+			settings.Add("STUNT_50A_unlim", false, "Unlimited Splits", "STUNT_50A");
+		settings.Add("STUNT_54A", false, "STUNT_54A - The Republic is Doomed Cutscene", "misc_main");
+			settings.Add("STUNT_54A_unlim", false, "Unlimited Splits", "STUNT_54A");
+		settings.Add("STUNT_55A", false, "STUNT_55A - All Hail Lord Revan Cutscene", "misc_main");
+			settings.Add("STUNT_55A_unlim", false, "Unlimited Splits", "STUNT_55A");
+		settings.Add("STUNT_56A", false, "STUNT_56A - Star Forge Destroyed Cutscene", "misc_main");
+			settings.Add("STUNT_56A_unlim", false, "Unlimited Splits", "STUNT_56A");
+		settings.Add("STUNT_57A", false, "STUNT_57A - The Sith are Defeated Cutscene", "misc_main");
+			settings.Add("STUNT_57A_unlim", false, "Unlimited Splits", "STUNT_57A");
 			
 	vars.enteredAreas = new List<string>() { "001EBO" };
 	
