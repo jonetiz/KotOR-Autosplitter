@@ -1,7 +1,7 @@
-//SW: KotOR Autosplitter - Release 5 (18 January 2022)
+//SW: KotOR Autosplitter - Release 6 (13 May 2022)
 //Full Configuration
 
-//by XerO w/ assistance from Burnt
+//by XerO w/ assistance from Burnt and Glasnonck
 
 state("swkotor") 
 {
@@ -262,7 +262,9 @@ startup
 	
 	// MISCELLANEOUS
 	settings.Add("misc_main", false, "Miscellaneous Splits");
-		settings.Add("STUNT_00", false, "STUNT_00 - Endar Spire -> Taris Cutscene", "misc_main");
+		settings.Add("EBO_M12AA", false, "EBO_M12AA - Ebon Hawk", "misc_main");
+			settings.Add("EBO_M12AA_unlim", false, "Unlimited Splits", "EBO_M12AA");
+		settings.Add("STUNT_00", false, "STUNT_00 - Dream Sequences", "misc_main");
 			settings.Add("STUNT_00_unlim", false, "Unlimited Splits", "STUNT_00");
 		settings.Add("STUNT_03A", false, "STUNT_03A - Taris Leviathan Bridge Cutscene", "misc_main");
 			settings.Add("STUNT_03A_unlim", false, "Unlimited Splits", "STUNT_03A");
