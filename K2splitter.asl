@@ -1,7 +1,7 @@
 //SW: KotOR II Autosplitter - Release 2 (20 January 2022)
 //Full Configuration
 
-//by XerO
+//by XerO and Glasnonck
 
 state("swkotor2")
 {
