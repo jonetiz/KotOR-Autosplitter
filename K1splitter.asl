@@ -261,7 +261,7 @@ startup
 			settings.Add("STA_M45AD_unlim", false, "Unlimited Splits", "STA_M45AD");
 	
 	// EBON HAWK
-	settings.Add("ebo_main", false", "Ebon Hawk Splits");
+	settings.Add("ebo_main", false, "Ebon Hawk Splits");
 		settings.Add("EBO_M12AA", false, "EBO_M12AA - Ebon Hawk", "ebo_main");
 			settings.Add("EBO_M12AA_unlim", false, "Unlimited Splits", "EBO_M12AA");
 		settings.Add("EBO_M41AA", false, "EBO_M41AA - Ebon Hawk on Lehon", "ebo_main");
