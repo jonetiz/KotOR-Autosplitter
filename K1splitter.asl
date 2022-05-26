@@ -369,7 +369,7 @@ split
 			}
 		}
 		if (settings["RelententThing"]) {
-			if (old.area == "TAR_M03AF" && current.area == "TAR_M02AF") {
+			if (old.area.ToUpper() == "TAR_M03AF" && current.area.ToUpper() == "TAR_M02AF") {
 				return true;
 			}
 		}
