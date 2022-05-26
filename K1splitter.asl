@@ -1,4 +1,4 @@
-//SW: KotOR Autosplitter - Release 6 (13 May 2022)
+//SW: KotOR Autosplitter - Release 7 (25 May 2022)
 //Full Configuration
 
 //by XerO w/ assistance from Burnt and Glasnonck
@@ -9,40 +9,6 @@ state("swkotor")
 	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
 	uint endState: "swkotor.exe",  0x3BB4E4;
 	int isNotLoading   : "dinput8.dll", 0x02C1D4;
-    int isNotLoading1803:"dinput8.dll", 0x02C1D4;
-    int isActiveWindow : "swkotor.exe", 0x3A3A38;
-    int inGamePause    : "swkotor.exe", 0x432890;
-    int runningTimer   : "swkotor.exe", 0x3B9288;
-}
-state("swkotor", "win10-18xx")
-{
-	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
-	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState: "swkotor.exe",  0x3BB4E4;
-    int isNotLoading   : "dinput8.dll", 0x030218;
-    int isNotLoading1803:"dinput8.dll", 0x032238;
-    int isActiveWindow : "swkotor.exe", 0x3A3A38;
-    int inGamePause    : "swkotor.exe", 0x432890;
-    int runningTimer   : "swkotor.exe", 0x3B9288;
-}
-state("swkotor", "win10-10-17")
-{
-	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
-	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState: "swkotor.exe",  0x3BB4E4;
-    int isNotLoading   : "dinput8.dll", 0x0311D8;
-    int isNotLoading1803:"dinput8.dll", 0x0311D8;
-    int isActiveWindow : "swkotor.exe", 0x3A3A38;
-    int inGamePause    : "swkotor.exe", 0x432890;
-    int runningTimer   : "swkotor.exe", 0x3B9288;
-}
-state("swkotor", "win10-old")
-{
-	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
-	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
-	uint endState: "swkotor.exe",  0x3BB4E4;
-    int isNotLoading   : "dinput8.dll", 0x02FEB8;
-    int isNotLoading1803:"dinput8.dll", 0x02FEB8;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
     int inGamePause    : "swkotor.exe", 0x432890;
     int runningTimer   : "swkotor.exe", 0x3B9288;
@@ -315,15 +281,9 @@ startup
 			settings.Add("STUNT_56A_unlim", false, "Unlimited Splits", "STUNT_56A");
 		settings.Add("STUNT_57A", false, "STUNT_57A - The Sith are Defeated Cutscene", "misc_main");
 			settings.Add("STUNT_57A_unlim", false, "Unlimited Splits", "STUNT_57A");
+		settings.Add("RelententThing", false, "Bastilla Saved", "misc_main");
 			
 	vars.enteredAreas = new List<string>() { "001EBO" };
-	
-	if (Environment.OSVersion.Version.Major == 6 &&
-        Environment.OSVersion.Version.Minor >  1 &&
-        Environment.OSVersion.Version.Build > 1800)
-    {
-        settings.Add("use1803Addr", false, "Use Windows 10 version 1803 addresses for Load Removal");
-    }
 	
 	vars.timerStart = (EventHandler) ((s, e) => {
         timer.Run.Offset = TimeSpan.FromSeconds(0);
@@ -334,24 +294,6 @@ startup
 
 init
 {
-    if (Environment.OSVersion.Version.Major == 10
-        || (Environment.OSVersion.Version.Major == 6 &&
-            Environment.OSVersion.Version.Minor >  1))
-    {
-        if (Environment.OSVersion.Version.Build > 1800)
-        {
-            version = "win10-18xx";
-        }
-        else if (Environment.OSVersion.Version.Build > 1700)
-        {
-            version = "win10-10-17";
-        }
-        else
-        {
-            version = "win10-old";
-        }
-    }
-    
     int moduleSize = modules.First().ModuleMemorySize;
     print("module size is " + moduleSize);
 
@@ -426,6 +368,11 @@ split
 				return true;
 			}
 		}
+		if (settings["RelententThing"]) {
+			if (old.area == "TAR_M03AF" && current.area == "TAR_M02AF") {
+				return true;
+			}
+		}
 	}
 	if (current.area.ToUpper() == "STA_M45AD" && current.endState == 1132924759)
 	{
@@ -437,16 +384,8 @@ isLoading
 {
     if (vars.trust == 1)
     {
-        if (settings["use1803Addr"])
-        {
-            return current.isNotLoading1803 == 0
-                && current.isActiveWindow   == 1;
-        }
-        else
-        {
-            return current.isNotLoading   == 0
-                && current.isActiveWindow == 1;
-        }
+        return current.isNotLoading   == 0
+			&& current.isActiveWindow == 1;
     }
     else
         return false;
