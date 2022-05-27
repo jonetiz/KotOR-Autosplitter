@@ -1,4 +1,4 @@
-//SW: KotOR II Autosplitter - Release 3 (25 May 2022)
+//SW: KotOR II Autosplitter - Release 2 (20 January 2022)
 //Full Configuration
 
 //by XerO and Glasnonck
@@ -12,6 +12,48 @@ state("swkotor2")
     int isActiveWindow 	: "swkotor2.exe", 0x61B4E0;
     int isMoviePlaying 	: "ddraw.dll",    0x07A00C;
     int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
+    
+    int isNotLoading1803:"dinput8.dll",  0x032238;
+    int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
+}
+state("swkotor2", "win10_1703")
+{
+	string6 area : "swkotor2.exe", 0x0061B4A4, 0x4, 0x4, 0x2FC, 0x5;
+	int endState : "swkotor2.exe", 0x000D6264, 0x68;
+	
+    int isNotLoading   : "dinput8.dll",  0x0311D8;
+    int isActiveWindow : "swkotor2.exe", 0x61B4E0;
+    int isMoviePlaying : "ddraw.dll",    0x080C04;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
+    
+    int isNotLoading1803:"dinput8.dll",  0x032238;
+    int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
+}
+state("swkotor2", "win10_1803")
+{
+	string6 area : "swkotor2.exe", 0x0061B4A4, 0x4, 0x4, 0x2FC, 0x5;
+	int endState : "swkotor2.exe", 0x000D6264, 0x68;
+	
+    int isNotLoading   : "dinput8.dll",  0x032238;
+    int isActiveWindow : "swkotor2.exe", 0x61B4E0;
+    int isMoviePlaying : "ddraw.dll",    0x07DC1C;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
+
+    int isNotLoading1803:"dinput8.dll",  0x032238;
+    int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
+}
+state("swkotor2", "win10_1809")
+{
+	string6 area : "swkotor2.exe", 0x0061B4A4, 0x4, 0x4, 0x2FC, 0x5;
+	int endState : "swkotor2.exe", 0x000D6264, 0x68;
+	
+    int isNotLoading   : "dinput8.dll",  0x030218;
+    int isActiveWindow : "swkotor2.exe", 0x61B4E0;
+    int isMoviePlaying : "ddraw.dll",    0x07CACC;
+    int modifierKeys   : "MSCTF.dll",    0x0C1FD8;
+
+    int isNotLoading1803:"dinput8.dll",  0x032238;
+    int isMoviePlaying1803:"ddraw.dll",  0x07DC1C;
 }
 
 startup
@@ -217,6 +259,13 @@ startup
 	
 	vars.loading = false;
 	
+	if (Environment.OSVersion.Version.Major == 6 &&
+        Environment.OSVersion.Version.Minor >  1 &&
+        Environment.OSVersion.Version.Build > 1800)
+    {
+        settings.Add("use1803Addr", false, "Use Windows 10 version 1803 addresses for Load Removal");
+    }
+	
 	vars.timerStart = (EventHandler) ((s, e) => {
         timer.Run.Offset = TimeSpan.FromSeconds(0);
     });
@@ -226,6 +275,24 @@ startup
 
 init
 {
+    if (Environment.OSVersion.Version.Major == 10
+        || (Environment.OSVersion.Version.Major == 6 &&
+            Environment.OSVersion.Version.Minor >  1))
+    {
+        if (Environment.OSVersion.Version.Build > 1805)
+        {
+            version = "win10_1809";
+        }
+        else if (Environment.OSVersion.Version.Build > 1800)
+        {
+            version = "win10_1803";
+        }
+        else if (Environment.OSVersion.Version.Build > 1700)
+        {
+            version = "win10_1703";
+        }
+    }
+
     // Variable used to determine trust of isNotLoading.
     vars.trust = 0;
 
@@ -290,6 +357,12 @@ update
     if (vars.trust == 0)
     {
         vars.loading = false;
+    }
+    else if (settings["use1803Addr"])
+    {
+        vars.loading = current.isNotLoading1803 == 0
+            && current.isActiveWindow == 1
+            && current.isMoviePlaying1803 == 0;
     }
     else
     {
