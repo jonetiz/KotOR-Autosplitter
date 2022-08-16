@@ -9,7 +9,7 @@ state("swkotor")
 	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
 	uint endState: "swkotor.exe",  0x3BB4E4;
 	int isNotLoading   : "dinput8.dll", 0x02C1D4;
-int isNotLoading1803:"dinput8.dll", 0x02C1D4;
+    int isNotLoading1803:"dinput8.dll", 0x02C1D4;
     int isActiveWindow : "swkotor.exe", 0x3A3A38;
     int inGamePause    : "swkotor.exe", 0x432890;
     int runningTimer   : "swkotor.exe", 0x3B9288;
@@ -20,32 +20,32 @@ state("swkotor", "win10-18xx")
 	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
 	uint endState: "swkotor.exe",  0x3BB4E4;
    	int isNotLoading   : "dinput8.dll", 0x030218;
-    	int isNotLoading1803:"dinput8.dll", 0x032238;
-    	int isActiveWindow : "swkotor.exe", 0x3A3A38;
-    	int inGamePause    : "swkotor.exe", 0x432890;
-    	int runningTimer   : "swkotor.exe", 0x3B9288;
+    int isNotLoading1803:"dinput8.dll", 0x032238;
+    int isActiveWindow : "swkotor.exe", 0x3A3A38;
+    int inGamePause    : "swkotor.exe", 0x432890;
+    int runningTimer   : "swkotor.exe", 0x3B9288;
 }
 state("swkotor", "win10-10-17")
 {
 	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
 	uint endState: "swkotor.exe",  0x3BB4E4;
-    	int isNotLoading   : "dinput8.dll", 0x0311D8;
-    	int isNotLoading1803:"dinput8.dll", 0x0311D8;
-    	int isActiveWindow : "swkotor.exe", 0x3A3A38;
-    	int inGamePause    : "swkotor.exe", 0x432890;
-    	int runningTimer   : "swkotor.exe", 0x3B9288;
+    int isNotLoading   : "dinput8.dll", 0x0311D8;
+    int isNotLoading1803:"dinput8.dll", 0x0311D8;
+    int isActiveWindow : "swkotor.exe", 0x3A3A38;
+    int inGamePause    : "swkotor.exe", 0x432890;
+    int runningTimer   : "swkotor.exe", 0x3B9288;
 }
 state("swkotor", "win10-old")
 {
 	string10 area: "swkotor.exe", 0x003A39E8, 0x4C, 0x0;
 	uint tickcount: "swkotor.exe", 0x003B935C, 0x54, 0x64, 0x18C;
 	uint endState: "swkotor.exe",  0x3BB4E4;
-    	int isNotLoading   : "dinput8.dll", 0x02FEB8;
-    	int isNotLoading1803:"dinput8.dll", 0x02FEB8;
-    	int isActiveWindow : "swkotor.exe", 0x3A3A38;
-    	int inGamePause    : "swkotor.exe", 0x432890;
-    	int runningTimer   : "swkotor.exe", 0x3B9288;
+    int isNotLoading   : "dinput8.dll", 0x02FEB8;
+    int isNotLoading1803:"dinput8.dll", 0x02FEB8;
+    int isActiveWindow : "swkotor.exe", 0x3A3A38;
+    int inGamePause    : "swkotor.exe", 0x432890;
+    int runningTimer   : "swkotor.exe", 0x3B9288;
 }
 
 startup
@@ -319,6 +319,13 @@ startup
 			
 	vars.enteredAreas = new List<string>() { "001EBO" };
 	
+    if (Environment.OSVersion.Version.Major == 6 &&
+        Environment.OSVersion.Version.Minor >  1 &&
+        Environment.OSVersion.Version.Build > 1800)
+    {
+        settings.Add("use1803Addr", false, "Use Windows 10 version 1803 addresses for Load Removal");
+    }
+
 	vars.timerStart = (EventHandler) ((s, e) => {
         timer.Run.Offset = TimeSpan.FromSeconds(0);
     });
@@ -328,6 +335,24 @@ startup
 
 init
 {
+    if (Environment.OSVersion.Version.Major == 10
+        || (Environment.OSVersion.Version.Major == 6 &&
+            Environment.OSVersion.Version.Minor >  1))
+    {
+        if (Environment.OSVersion.Version.Build > 1800)
+        {
+            version = "win10-18xx";
+        }
+        else if (Environment.OSVersion.Version.Build > 1700)
+        {
+            version = "win10-10-17";
+        }
+        else
+        {
+            version = "win10-old";
+        }
+    }
+    
     int moduleSize = modules.First().ModuleMemorySize;
     print("module size is " + moduleSize);
 
