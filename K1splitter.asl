@@ -289,6 +289,8 @@ startup
 			settings.Add("STUNT_14_unlim", false, "Unlimited Splits", "STUNT_14");
 		settings.Add("STUNT_16", false, "STUNT_16 - Leviathan Capture Cutscene", "misc_main");
 			settings.Add("STUNT_16_unlim", false, "Unlimited Splits", "STUNT_16");
+		settings.Add("STUNT_19", false, "STUNT_19 - Star Forge Lehon Temple Cutscene", "misc_main");
+			settings.Add("STUNT_19_unlim", false, "Unlimited Splits", "STUNT_19");
 		settings.Add("EBO_M40AA", false, "EBO_M40AA - Leviathan Game Plan Cutscene", "misc_main");
 			settings.Add("EBO_M40AA_unlim", false, "Unlimited Splits", "EBO_M40AA");
 		settings.Add("STUNT_31B", false, "STUNT_31B - Revan Reveal Cutscene", "misc_main");
